@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+import Main from "./pages/Main.jsx";
+import Notice from "./pages/Notice.jsx";
+
+const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+export default function() {
+
+  const headerStyle = (title = '') => {
+    const style = {
+      title: title,
+      headerStyle: { backgroundColor: '#00ada9' },
+      headerTintColor: '#fff',
+    }
+    return {...style};
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Main" component={Main} options={headerStyle('Balance Play')} />
+        <Drawer.Screen name="Notice" component={Notice} options={headerStyle('Notice')} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

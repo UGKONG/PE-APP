@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Balace Play App",
+    "githubUrl": "https://github.com/UGKONG/PE-APP.git"
   }
 }
