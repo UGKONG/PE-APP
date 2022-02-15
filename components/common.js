@@ -1,11 +1,17 @@
 import { StyleSheet } from 'react-native';
 
-const color = {
+export const color = {
   main: '#00ada9',
   active: '#008a87',
+  background: '#f1f9f8',
 }
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#f1f9f8'
+  },
   h1: {
     width: '100%',
     justifyContent: 'space-between',
@@ -29,5 +35,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgb(33, 150, 243)',
+  },
+  buttonText: {
+    color: '#fff',
   }
 });
