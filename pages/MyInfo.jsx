@@ -5,14 +5,14 @@ import CommonStyle from '../components/Common.js';
 
 export default function ({ navigation }) {
   return (
-    <View style={CommonStyle.container}>
+    <>
       <View style={CommonStyle.h1}>
         <Text style={CommonStyle.h1Text}>내정보</Text>
       </View>
-      <View>
+      <View style={CommonStyle.container}>
         
       </View>
-    </View>
+    </>
   )
 }
 
