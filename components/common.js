@@ -1,14 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 export const text = {
-  programName: 'Balance Play'
+  programName: 'Balance Play',
+  backIcon: 'ios-chevron-back',
+  menuIcon: 'ios-menu',
 }
 
 export const color = {
   main: '#00ada9',
   active: '#008a87',
   background: '#f1f9f8',
-  statusBarColor: '#7ad4d2',
+  statusBarColor: '#ddf5f2',
 }
 
 export default StyleSheet.create({
@@ -25,20 +27,23 @@ export default StyleSheet.create({
     flexWrap: 'nowrap',
     flexDirection: 'row',
     paddingHorizontal: 16,
-    backgroundColor: color.statusBarColor
+    backgroundColor: color.statusBarColor,
+    borderBottomColor: '#cef0ec',
+    borderBottomWidth: 1,
   },
   h1Text: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#fff', //color.active,
+    color: color.active,
     width: '100%',
     textAlign: 'left',
     alignItems: 'center'
   },
   backButton: {
     marginRight: 14,
-    color: '#ffffff70',
-
+  },
+  backButtonText: {
+    color: color.main
   },
   button: {
     paddingVertical: 10,

@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import CommonStyle, { color as CommonColor } from '../components/Common.js';
+import { Ionicons } from '@expo/vector-icons';
+import CommonStyle, { color as CommonColor, text as CommonText } from '../components/Common.js';
+import Menu from './Menu.jsx';
 import Test from './Test.jsx';
 
 const Stack = createNativeStackNavigator();
@@ -16,12 +18,15 @@ export default function () {
     { id: 5, name: '양육 태도 검사', navigate: 'Test5' },
   ]);
 
-  const TestIndex = ({ navigation }) => (
+  const IndexScreen = ({ navigation }) => (
     <>
       <View style={CommonStyle.h1}>
+        <TouchableOpacity style={CommonStyle.backButton} onPress={() => navigation.navigate('Menu')}>
+          <Ionicons style={CommonStyle.backButtonText} name={CommonText.menuIcon} size={28} />
+        </TouchableOpacity>
         <Text style={CommonStyle.h1Text}>검사 항목</Text>
       </View>
-      <ScrollView style={[CommonStyle.container, { padding: 10 }]}>
+      <ScrollView style={CommonStyle.container}>
         {
           testBtnList.map((item) => (
             <TouchableOpacity key={item.id}
@@ -36,14 +41,16 @@ export default function () {
     </>
   )
 
+  const stackOption = { headerShown: false };
   return (
     <Stack.Navigator>
-      <Stack.Screen name='_TestIndex' component={TestIndex} options={{ headerShown: false }} />
-      <Stack.Screen name='Test1' component={Test} options={{ headerShown: false }} />
-      <Stack.Screen name='Test2' component={Test} options={{ headerShown: false }} />
-      <Stack.Screen name='Test3' component={Test} options={{ headerShown: false }} />
-      <Stack.Screen name='Test4' component={Test} options={{ headerShown: false }} />
-      <Stack.Screen name='Test5' component={Test} options={{ headerShown: false }} />
+      <Stack.Screen name='_TestIndex' component={IndexScreen} options={stackOption} />
+      <Stack.Screen name='Test1' component={Test} options={stackOption} />
+      <Stack.Screen name='Test2' component={Test} options={stackOption} />
+      <Stack.Screen name='Test3' component={Test} options={stackOption} />
+      <Stack.Screen name='Test4' component={Test} options={stackOption} />
+      <Stack.Screen name='Test5' component={Test} options={stackOption} />
+      <Stack.Screen name='Menu' component={Menu} options={stackOption} />
     </Stack.Navigator>
   );
 }

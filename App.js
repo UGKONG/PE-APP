@@ -16,28 +16,28 @@ const statusBarHeight = Platform.OS === 'ios' ? getStatusBarHeight(true) : Statu
 
 export default function({ navigation }) {
 
-
+  const tabIconControl = route => ({
+    tabBarIcon: ({ focused, color, size }) => {
+      let iconName = '';
+      switch (route.name) {
+        case 'Main': iconName = 'home'; break;
+        case 'TestIndex': iconName = 'copy1'; break;
+        case 'Notice': iconName = 'bells'; break;
+        case 'MyInfo': iconName = 'user'; break;
+        default: iconName = ''; break;
+      }
+      return <AntDesign name={iconName} size={24} color={focused ? CommonColor.active : 'gray'} />
+    },
+    tabBarActiveTintColor: CommonColor.active,
+    tabBarInactiveTintColor: 'gray',
+  })
 
   return (
     <>
       <StatusBar />
       <NavigationContainer>
         <View style={styles.statusBar} />
-        <Tab.Navigator screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName = '';
-            switch (route.name) {
-              case 'Main': iconName = 'home'; break;
-              case 'TestIndex': iconName = 'copy1'; break;
-              case 'Notice': iconName = 'bells'; break;
-              case 'MyInfo': iconName = 'user'; break;
-              default: iconName = ''; break;
-            }
-            return <AntDesign name={iconName} size={24} color={focused ? CommonColor.active : 'gray'} />
-          },
-          tabBarActiveTintColor: CommonColor.active,
-          tabBarInactiveTintColor: 'gray',
-        })}>
+        <Tab.Navigator screenOptions={({ route }) => tabIconControl(route)}>
           <Tab.Screen name='Main' component={Main} options={{ title: 'Home', headerShown: false }} />
           <Tab.Screen name='TestIndex' component={TestIndex} options={{ title: '검사지', headerShown: false }} />
           <Tab.Screen name='Notice' component={Notice} options={{ title: '공지사항', tabBarBadge: 3, headerShown: false }} />
