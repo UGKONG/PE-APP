@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { AntDesign } from '@expo/vector-icons'; // https://icons.expo.fyi/
-import { color as CommonColor } from './components/Common.js';
+import { color as CommonColor } from './components/common.js';
 
 import Main from "./pages/Main.jsx";
 import TestIndex from "./pages/TestIndex.jsx";

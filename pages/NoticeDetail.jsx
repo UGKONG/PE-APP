@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import CommonStyle, { text as CommonText} from '../components/Common.js';
+import CommonStyle, { text as CommonText} from '../components/common.js';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 
@@ -13,7 +13,7 @@ export default function ({ navigation, route }) {
     axios.get('http://localhost:8888/notice?id=' + id).then(
       ({ data }) => setData(data)
     )
-  }, []);
+  }, [id]);
 
   return (
     <>

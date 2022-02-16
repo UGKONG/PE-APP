@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import CommonStyle from '../components/Common.js';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Button } from 'react-native';
+import CommonStyle from '../components/common.js';
 import NoticeDetail from './NoticeDetail.jsx';
 
 const Stack = createNativeStackNavigator();
@@ -11,7 +11,11 @@ const Stack = createNativeStackNavigator();
 export default function ({ navigation }) {
 
   const [list, setList] = useState([]);
-  
+  const addNotice = () => {
+    axios.post('http://localhost:8888/notice', { data: 'null' })
+      .then(({data}) => console.log(data));
+  }
+
   useEffect(() => {
     axios.get('http://localhost:8888/notice').then(
       ({ data }) => setList(data)
@@ -33,6 +37,7 @@ export default function ({ navigation }) {
             </TouchableOpacity>
           ))
         }
+        <Button title='추가' onPress={addNotice} />
       </ScrollView>
     </>
   );

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import CommonStyle, { text as CommonText } from '../components/Common.js';
+import CommonStyle, { text as CommonText } from '../components/common.js';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function ({ route, navigation }) {

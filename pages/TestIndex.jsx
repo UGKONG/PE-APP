@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import CommonStyle from '../components/Common.js';
+import CommonStyle from '../components/common.js';
 import Test from './Test.jsx';
 
 const Stack = createNativeStackNavigator();
