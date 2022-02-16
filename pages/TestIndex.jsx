@@ -2,9 +2,7 @@
 import React, { useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import CommonStyle, { color as CommonColor, text as CommonText } from '../components/Common.js';
-import Menu from './Menu.jsx';
+import CommonStyle from '../components/Common.js';
 import Test from './Test.jsx';
 
 const Stack = createNativeStackNavigator();
@@ -21,9 +19,6 @@ export default function () {
   const IndexScreen = ({ navigation }) => (
     <>
       <View style={CommonStyle.h1}>
-        <TouchableOpacity style={CommonStyle.backButton} onPress={() => navigation.navigate('Menu')}>
-          <Ionicons style={CommonStyle.backButtonText} name={CommonText.menuIcon} size={28} />
-        </TouchableOpacity>
         <Text style={CommonStyle.h1Text}>검사 항목</Text>
       </View>
       <ScrollView style={CommonStyle.container}>
@@ -50,7 +45,6 @@ export default function () {
       <Stack.Screen name='Test3' component={Test} options={stackOption} />
       <Stack.Screen name='Test4' component={Test} options={stackOption} />
       <Stack.Screen name='Test5' component={Test} options={stackOption} />
-      <Stack.Screen name='Menu' component={Menu} options={stackOption} />
     </Stack.Navigator>
   );
 }

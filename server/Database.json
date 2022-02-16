@@ -1,0 +1,29 @@
+{
+  "noticeList": [
+    {
+      "id": 1,
+      "title": "공지사항1",
+      "contents": "공지사항1의 내용입니다.",
+      "writer": 1,
+      "writerName": "전상욱",
+      "writeDT": "2022-02-16"
+    },
+    {
+      "id": 2,
+      "title": "공지사항2",
+      "contents": "공지사항2의 내용입니다.",
+      "writer": 1,
+      "writerName": "전상욱",
+      "writeDT": "2022-02-16"
+    },
+    {
+      "id": 3,
+      "title": "공지사항3",
+      "contents": "공지사항3의 내용입니다.",
+      "writer": 1,
+      "writerName": "전상욱",
+      "writeDT": "2022-02-16"
+    }
+  ],
+  "log": []
+}

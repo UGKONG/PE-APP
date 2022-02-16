@@ -2,20 +2,15 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import CommonStyle, { text as CommonText } from '../components/Common.js';
-import { Ionicons } from '@expo/vector-icons';
-import Menu from './Menu.jsx';
+import CommonStyle from '../components/Common.js';
 
 const Stack = createNativeStackNavigator();
 
-export default function ({ navigation }) {
+export default function ({ route, navigation }) {
 
-  const IndexScreen = ({ navigation }) => (
+  const IndexScreen = () => (
     <>
       <View style={CommonStyle.h1}>
-        <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
-          <Ionicons style={CommonStyle.backButtonText} name={CommonText.menuIcon} size={28} />
-        </TouchableOpacity>
         <Image
           style={styles.logo}
           source={require('../assets/logo-w.png')}
@@ -29,10 +24,11 @@ export default function ({ navigation }) {
 
   const stackOption = { headerShown: false };
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='_Main' component={IndexScreen} options={stackOption} />
-      <Stack.Screen name='Menu' component={Menu} options={stackOption} />
-    </Stack.Navigator>
+    <>
+      <Stack.Navigator>
+        <Stack.Screen name='_Main' component={IndexScreen} options={stackOption} />
+      </Stack.Navigator>
+    </>
   )
 }
 

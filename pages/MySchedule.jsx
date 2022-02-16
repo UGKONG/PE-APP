@@ -11,10 +11,10 @@ export default function ({ navigation }) {
   const IndexScreen = ({ navigation }) => (
     <>
       <View style={CommonStyle.h1}>
-        <Text style={CommonStyle.h1Text}>내정보</Text>
+        <Text style={CommonStyle.h1Text}>나의 스케줄</Text>
       </View>
       <ScrollView style={CommonStyle.container}>
-        <Text>내정보</Text>
+        <Text>나의 스케줄</Text>
       </ScrollView>
     </>
   )
@@ -22,7 +22,7 @@ export default function ({ navigation }) {
   const stackOption = { headerShown: false };
   return (
     <Stack.Navigator>
-      <Stack.Screen name='_MyInfo' component={IndexScreen} options={stackOption} />
+      <Stack.Screen name='_MySchedule' component={IndexScreen} options={stackOption} />
     </Stack.Navigator>
   )
 }
