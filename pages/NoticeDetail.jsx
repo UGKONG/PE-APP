@@ -10,7 +10,7 @@ export default function ({ navigation, route }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8888/notice?id=' + id).then(
+    axios.get('http://192.168.0.90:8888/notice/' + id).then(
       ({ data }) => setData(data)
     )
   }, [id]);

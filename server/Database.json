@@ -1,5 +1,61 @@
 {
-  "noticeList": [
+  "user": [
+    {
+      "id": 1,
+      "name": "전상욱",
+      "phone": "010-1111-1111",
+      "birth": "19980127",
+      "gender": "M",
+      "userId": "test1",
+      "userPw": "test1"
+    },
+    {
+      "id": 2,
+      "name": "홍길동",
+      "phone": "010-2222-2222",
+      "birth": "20150101",
+      "gender": "M",
+      "userId": "test2",
+      "userPw": "test2"
+    },
+    {
+      "id": 3,
+      "name": "홍길동3",
+      "phone": "010-3333-3333",
+      "birth": "00000000",
+      "gender": "M",
+      "userId": "test3",
+      "userPw": "test3"
+    },
+    {
+      "id": 4,
+      "name": "홍길동4",
+      "phone": "010-4444-4444",
+      "birth": "00000000",
+      "gender": "M",
+      "userId": "test4",
+      "userPw": "test4"
+    },
+    {
+      "id": 5,
+      "name": "홍길동5",
+      "phone": "010-5555-5555",
+      "birth": "00000000",
+      "gender": "M",
+      "userId": "test5",
+      "userPw": "test5"
+    },
+    {
+      "id": 6,
+      "name": "홍길동6",
+      "phone": "010-6666-6666",
+      "birth": "00000000",
+      "gender": "M",
+      "userId": "test6",
+      "userPw": "test6"
+    }
+  ],
+  "notice": [
     {
       "id": 1,
       "title": "공지사항1",

@@ -1,12 +1,34 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import CommonStyle, { text as CommonText } from '../components/common.js';
+import { View, Text, StyleSheet, ScrollView, Button } from 'react-native';
+import CommonStyle from '../components/common.js';
 
 const Stack = createNativeStackNavigator();
 
 export default function ({ navigation }) {
+  const [users, setUsers] = useState([]);
+
+  const getUser = () => {
+    axios.get('http://192.168.0.90:8888/user').then(({ data }) => {
+      setUsers(data);
+    });
+  }
+  const postUser = () => {
+    let i = users.length + 1;
+    let data = {
+      id: i, name: `홍길동${i}`, phone: `010-${i}${i}${i}${i}-${i}${i}${i}${i}`, 
+      birth: `00000000`, gender: `M`, userId: `test${i}`, userPw: `test${i}`
+    };
+    axios.post('http://192.168.0.90:8888/user', data).then(() => {
+      getUser();
+    })
+  }
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   const IndexScreen = ({ navigation }) => (
     <>
@@ -14,7 +36,17 @@ export default function ({ navigation }) {
         <Text style={CommonStyle.h1Text}>내정보</Text>
       </View>
       <ScrollView style={CommonStyle.container}>
-        <Text>내정보</Text>
+        {
+          users.map(user => (
+            <Text key={user.id}>id: {user.id} / name: {user.name}</Text>
+          ))  
+        }
+        <Button title='POST_TEST' onPress={postUser} />
+        <Button title='DELETE_TEST' onPress={() => {
+          axios.delete('http://192.168.0.90:8888/user').then(() => {
+            getUser();
+          })
+        }} />
       </ScrollView>
     </>
   )

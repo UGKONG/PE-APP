@@ -11,13 +11,9 @@ const Stack = createNativeStackNavigator();
 export default function ({ navigation }) {
 
   const [list, setList] = useState([]);
-  const addNotice = () => {
-    axios.post('http://localhost:8888/notice', { data: 'null' })
-      .then(({data}) => console.log(data));
-  }
-
+  
   useEffect(() => {
-    axios.get('http://localhost:8888/notice').then(
+    axios.get('http://192.168.0.90:8888/notice').then(
       ({ data }) => setList(data)
     )
   }, []);
@@ -37,7 +33,6 @@ export default function ({ navigation }) {
             </TouchableOpacity>
           ))
         }
-        <Button title='추가' onPress={addNotice} />
       </ScrollView>
     </>
   );
