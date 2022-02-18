@@ -2,7 +2,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import CommonStyle from '../components/common.js';
+import commonStyle from '../components/common.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,13 +10,13 @@ export default function ({ route, navigation }) {
 
   const IndexScreen = () => (
     <>
-      <View style={CommonStyle.h1}>
+      <View style={commonStyle.h1}>
         <Image
           style={styles.logo}
           source={require('../assets/logo-w.png')}
         />
       </View>
-      <ScrollView style={CommonStyle.container}>
+      <ScrollView style={commonStyle.container}>
         <Text>메인페이지</Text>
       </ScrollView>
     </>

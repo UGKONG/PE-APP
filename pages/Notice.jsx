@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Button } from 'react-native';
-import CommonStyle from '../components/common.js';
+import commonStyle from '../components/common.js';
 import NoticeDetail from './NoticeDetail.jsx';
 
 const Stack = createNativeStackNavigator();
@@ -13,23 +13,23 @@ export default function ({ navigation }) {
   const [list, setList] = useState([]);
   
   useEffect(() => {
-    axios.get('http://192.168.0.90:8888/notice').then(
+    axios.get('http://192.168.0.59:8888/notice').then(
       ({ data }) => setList(data)
     )
   }, []);
 
   const IndexScreen = ({ navigation }) => (
     <>
-      <View style={CommonStyle.h1}>
-        <Text style={CommonStyle.h1Text}>공지 사항</Text>
+      <View style={commonStyle.h1}>
+        <Text style={commonStyle.h1Text}>공지 사항</Text>
       </View>
-      <ScrollView style={CommonStyle.container}>
+      <ScrollView style={commonStyle.container}>
         {
           list.map(item => (
-            <TouchableOpacity key={item.id} style={[CommonStyle.button, { marginBottom: 10 }]} onPress={() => {
+            <TouchableOpacity key={item.id} style={[commonStyle.button, { marginBottom: 10 }]} onPress={() => {
               navigation.navigate('NoticeDetail', {id: item.id})
             }}>
-              <Text style={CommonStyle.buttonText}>{item.title}</Text>
+              <Text style={commonStyle.buttonText}>{item.title}</Text>
             </TouchableOpacity>
           ))
         }

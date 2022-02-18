@@ -35,24 +35,6 @@
       "gender": "M",
       "userId": "test4",
       "userPw": "test4"
-    },
-    {
-      "id": 5,
-      "name": "홍길동5",
-      "phone": "010-5555-5555",
-      "birth": "00000000",
-      "gender": "M",
-      "userId": "test5",
-      "userPw": "test5"
-    },
-    {
-      "id": 6,
-      "name": "홍길동6",
-      "phone": "010-6666-6666",
-      "birth": "00000000",
-      "gender": "M",
-      "userId": "test6",
-      "userPw": "test6"
     }
   ],
   "notice": [
@@ -79,6 +61,33 @@
       "writer": 1,
       "writerName": "전상욱",
       "writeDT": "2022-02-16"
+    }
+  ],
+  "testItem": [
+    {
+      "id": 1,
+      "name": "밸런스 기질 검사",
+      "navigate": "Test1"
+    },
+    {
+      "id": 2,
+      "name": "밸런스 감각 검사",
+      "navigate": "Test2"
+    },
+    {
+      "id": 3,
+      "name": "유아 정서 지능 검사",
+      "navigate": "Test3"
+    },
+    {
+      "id": 4,
+      "name": "유아 식습관 검사",
+      "navigate": "Test4"
+    },
+    {
+      "id": 5,
+      "name": "양육 태도 검사",
+      "navigate": "Test5"
     }
   ],
   "log": []

@@ -2,7 +2,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import CommonStyle, { text as CommonText } from '../components/common.js';
+import commonStyle, { text as CommonText } from '../components/common.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,10 +10,10 @@ export default function ({ navigation }) {
 
   const IndexScreen = ({ navigation }) => (
     <>
-      <View style={CommonStyle.h1}>
-        <Text style={CommonStyle.h1Text}>나의 스케줄</Text>
+      <View style={commonStyle.h1}>
+        <Text style={commonStyle.h1Text}>나의 스케줄</Text>
       </View>
-      <ScrollView style={CommonStyle.container}>
+      <ScrollView style={commonStyle.container}>
         <Text>나의 스케줄</Text>
       </ScrollView>
     </>

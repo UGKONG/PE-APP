@@ -15,7 +15,7 @@ let Database;
 const getDatabase = (fn) => {
   fs.readFile(__dirname + '/Database.json', 'utf-8', (err, data) => {
     Database = JSON.parse(data);
-    fn();
+    fn(data);
   })
 }
 
@@ -71,6 +71,12 @@ app.route('/user/:id')
       res.send(Database ?? 'null');
     })
   });
+
+// 테스트 항목
+app.route('/testItem')
+  .get((req, res) => {
+    getDatabase(() => res.send(Database.testItem))
+  })
 
 // 공지사항
 app.route('/notice')

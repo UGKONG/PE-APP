@@ -9,6 +9,7 @@ export const text = {
 export const color = {
   main: '#00ada9',
   active: '#008a87',
+  sub: '#96E2E0',
   background: '#f1f9f8',
   statusBarColor: '#ddf5f2',
 }

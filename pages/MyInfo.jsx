@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, ScrollView, Button } from 'react-native';
-import CommonStyle from '../components/common.js';
+import commonStyle from '../components/common.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,7 +11,7 @@ export default function ({ navigation }) {
   const [users, setUsers] = useState([]);
 
   const getUser = () => {
-    axios.get('http://192.168.0.90:8888/user').then(({ data }) => {
+    axios.get('http://192.168.0.59:8888/user').then(({ data }) => {
       setUsers(data);
     });
   }
@@ -21,7 +21,7 @@ export default function ({ navigation }) {
       id: i, name: `홍길동${i}`, phone: `010-${i}${i}${i}${i}-${i}${i}${i}${i}`, 
       birth: `00000000`, gender: `M`, userId: `test${i}`, userPw: `test${i}`
     };
-    axios.post('http://192.168.0.90:8888/user', data).then(() => {
+    axios.post('http://192.168.0.59:8888/user', data).then(() => {
       getUser();
     })
   }
@@ -32,10 +32,10 @@ export default function ({ navigation }) {
 
   const IndexScreen = ({ navigation }) => (
     <>
-      <View style={CommonStyle.h1}>
-        <Text style={CommonStyle.h1Text}>내정보</Text>
+      <View style={commonStyle.h1}>
+        <Text style={commonStyle.h1Text}>내정보</Text>
       </View>
-      <ScrollView style={CommonStyle.container}>
+      <ScrollView style={commonStyle.container}>
         {
           users.map(user => (
             <Text key={user.id}>id: {user.id} / name: {user.name}</Text>
@@ -43,7 +43,7 @@ export default function ({ navigation }) {
         }
         <Button title='POST_TEST' onPress={postUser} />
         <Button title='DELETE_TEST' onPress={() => {
-          axios.delete('http://192.168.0.90:8888/user').then(() => {
+          axios.delete('http://192.168.0.59:8888/user').then(() => {
             getUser();
           })
         }} />
