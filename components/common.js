@@ -57,5 +57,5 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-  }
+  },
 });

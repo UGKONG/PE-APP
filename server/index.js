@@ -6,7 +6,6 @@ const { Server } = require('socket.io');
 const io = new Server(server);
 const cors = require('cors');
 const port = 8888;
-const dbUrl = 'http://localhost:8888';
 const fs = require('fs');
 const { getDateTime } = require('./functions.js');
 const { json } = require('express');

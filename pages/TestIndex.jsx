@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import commonStyle, { color as commonColor } from '../components/common.js';
 import Test from './Test.jsx';
+import { staticState } from '../modules/store.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +13,7 @@ export default function () {
   const [testBtnList, setTestBtnList] = useState([]);
 
   const getTestItem = () => {
-    axios.get('http://localhost:8888/testItem')
+    axios.get(staticState.dbUrl + '/testItem')
       .then(({ data }) => {
         setTestBtnList(data);
       })

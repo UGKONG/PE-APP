@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import commonStyle from '../components/common.js';
 import NoticeDetail from './NoticeDetail.jsx';
+import { staticState } from '../modules/store.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +14,7 @@ export default function ({ navigation }) {
   const [list, setList] = useState([]);
   
   useEffect(() => {
-    axios.get('http://192.168.0.59:8888/notice').then(
+    axios.get(staticState.dbUrl + '/noticeList').then(
       ({ data }) => setList(data)
     )
   }, []);

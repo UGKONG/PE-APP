@@ -4,6 +4,7 @@ import axios from 'axios';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, ScrollView, Button } from 'react-native';
 import commonStyle from '../components/common.js';
+import { staticState } from '../modules/store.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,20 +12,11 @@ export default function ({ navigation }) {
   const [users, setUsers] = useState([]);
 
   const getUser = () => {
-    axios.get('http://192.168.0.59:8888/user').then(({ data }) => {
+    axios.get(staticState.dbUrl + '/userList').then(({ data }) => {
       setUsers(data);
     });
   }
-  const postUser = () => {
-    let i = users.length + 1;
-    let data = {
-      id: i, name: `홍길동${i}`, phone: `010-${i}${i}${i}${i}-${i}${i}${i}${i}`, 
-      birth: `00000000`, gender: `M`, userId: `test${i}`, userPw: `test${i}`
-    };
-    axios.post('http://192.168.0.59:8888/user', data).then(() => {
-      getUser();
-    })
-  }
+  
 
   useEffect(() => {
     getUser();
@@ -41,12 +33,6 @@ export default function ({ navigation }) {
             <Text key={user.id}>id: {user.id} / name: {user.name}</Text>
           ))  
         }
-        <Button title='POST_TEST' onPress={postUser} />
-        <Button title='DELETE_TEST' onPress={() => {
-          axios.delete('http://192.168.0.59:8888/user').then(() => {
-            getUser();
-          })
-        }} />
       </ScrollView>
     </>
   )

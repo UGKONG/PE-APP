@@ -4,13 +4,14 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import commonStyle, { text as CommonText} from '../components/common.js';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import { staticState } from '../modules/store.js';
 
 export default function ({ navigation, route }) {
   const id = route.params.id;
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get('http://192.168.0.59:8888/notice/' + id).then(
+    axios.get(staticState.dbUrl + '/noticeList/' + id).then(
       ({ data }) => setData(data)
     )
   }, [id]);
@@ -27,7 +28,7 @@ export default function ({ navigation, route }) {
         <Text>제목 : {data?.title}</Text>
         <Text>내용 : {data?.contents}</Text>
         <Text>작성자 : {data?.writerName}</Text>
-        <Text>작성일 : {data?.writeDT}</Text>
+        <Text>작성일 : {data?.date}</Text>
       </ScrollView>
     </>
   )
